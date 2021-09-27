@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../images/4.png" type="image/png" sizes="16x16">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <title>DabJab</title>
+    <style>
+        .card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: #F1FAFD;
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+    </style>
+</head>
+<body style="width: 100%; background-color: #DCF6FF;">
+
+          <!-- NavBar -->
+          <nav class="navbar navbar-expand-lg navbar-light" style="padding: 3rem 10% 0; font-family: 'Poppins', sans-serif; ">
+            <a class="navbar-brand" href="#">
+                <img src="../images/4.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                DabJab
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse me-1" id="navbarNav" style="justify-content: end;">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="./alldata.html">Get Data <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./resgister-camp.html">Register as Camp</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./notify.html">Set a Reminder</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./info.html">FAQ's</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+
+    <!--        Form         -->
+    <div>
+        <div style="display: flex; justify-content: center;">
+            <div class="fluid-container card" style=" align-items: center; flex-direction: column; padding-top: 5vh; padding-bottom: 4vh; margin-top: 10vh; margin-bottom: 4vh; width: 60%;">
+                <form action="">
+                    <div class="row container-fluid" style="margin: 0;">
+                        <div class="col-lg-12 col-md-12 col-sm-12" style="justify-content: center; display: flex;">
+                            <img src="../images/vaxicon.png" style="width: 50%;" alt="">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <input type="text" class="form-control" placeholder="Pincode" id="pincode">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <input type="date" class="form-control" placeholder="Date" id="date">
+                        </div>
+                        <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: center; padding-top: 2vh;">
+                            <button class="btn btn-md" style="background-color: #07A6C2; color: white; font-family: 'Poppins', sans-serif;">Check</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div    style="display: flex; flex-direction: column; align-items: center;">
+            <h5 id="cowin-heading"></h5>
+            <p id="cowin-data"></p><br><br>
+            <h5 id="camp-heading"></h5>
+            <p id="camp-data"></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const outputCowin = document.querySelector('#cowin-data') 
+        const outputCamp = document.querySelector('#camp-data')
+        const cowinHeading = document.querySelector('#cowin-heading') 
+        const campHeading = document.querySelector('#camp-heading') 
+
+        const form = document.querySelector('form')
+        const searchPincode = document.querySelector('#pincode')
+        const searchDate = document.querySelector('#date')
+        console.log(searchDate);
+
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const pincode = searchPincode.value
+
+            const dateInput = searchDate.value;
+            const year = dateInput.slice(0,4);
+            const month = dateInput.slice(5,7);
+            const date = dateInput.slice(8,10);
+        
+            //final date in dd-mm-yyyy
+            const dateSearched = date + '-' + month + '-' + year
+
+            fetch('http://localhost:3000/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
+                res.json().then((data) => {
+                    // if(!data) {
+                    //     return output.innerHTML = 'No Sessions Found'
+                    // }
+                    cowinHeading.innerHTML = 'Hospital Data'
+                    data.map((abc, index) => {
+                        return outputCowin.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Slots:</b> ${abc.slots} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`
+                    })
+                }).catch((e) => {
+                    console.log(e.message);
+                })
+            }).catch((e) => {
+                console.log(e.message);
+            })
+
+            fetch('http://localhost:3000/getcampdata?date='+dateSearched+'&pincode='+pincode).then((res) => {
+                res.json().then((data) => {
+                    // if(!data) {
+                    //     return output.innerHTML = 'No Sessions Found'
+                    // }
+                    campHeading.innerHTML = 'Camp Data:'
+                    data.map((abc, index) => {
+                        return outputCamp.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Slots:</b> ${abc.slots} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`
+                    })
+                }).catch((e) => {
+                    console.log(e.message);
+                })
+            }).catch((e) => {
+                console.log(e.message);
+            })
+
+        })
+    </script>
+</body>
+<div style="display: flex; width: 100%; align-items: flex-end; justify-content: flex-end;">
+    <footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%;">
+        Made with ❤️ by Manan Vij 
+    </footer>
+</div>
+</html>

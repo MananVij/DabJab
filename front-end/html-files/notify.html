@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="502354893360-nu79cqqsiepagrk4s52nb4cketoo54ac.apps.googleusercontent.com">
+    
+    
+    <link rel="icon" href="../images/4.png" type="image/png" sizes="16x16">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    
+    <title>DabJab</title>
+    <style>
+      p{
+        font-family: 'Open Sans', sans-serif; 
+      }
+      .navlink {
+        font-family: 'Lato', sans-serif;
+      }
+      .card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    /* background-color: rgba(255, 255, 255, 0.75); */
+    background-color: #F1FAFD;
+
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+body {
+    background-color: #07A6C2;
+}
+.container-fluid {
+  width: auto;
+}
+</style>
+</head>
+<body style="width: 100%; font-family: 'Poppins', sans-serif; background-color: #DCF6FF;">
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="padding: 3rem 10% 0;">
+        <a class="navbar-brand" href="#">
+            <img src="../images/4.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            DabJab
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse me-1" id="navbarNav" style="justify-content: end;">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cowin-data.html">Get Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./resgister-camp.html">Register as Camp</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./notify.html">Set a Reminder<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./info.html">FAQ's</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!--    Form    -->
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+        <div class="container-fluid card" style="align-items: center; flex-direction: column; padding-top: 5vh; padding-bottom: 4vh; margin: 10vh 3vh 4vh; ">
+          <h4 style="text-align: center; margin-bottom: 6vh; font-family: 'Poppins', sans-serif; font-weight: bolder; font-size: 250%;">Get Notified for Free!</h4>
+          <form>
+            <div class="row container-fluid" style="margin: 0;">
+                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                      <label>Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="Jimmy Walter">
+                </div>
+                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                  <label>Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="abc@example.com">
+                </div>
+            </div>
+            <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: center; padding-top: 2vh;">
+              <button class="btn btn-primary btn-md" style="margin-right: 1vh;">Notify Me!</button>
+              <div style="text-align: center; margin-right: 1vh;" class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+                    </div>
+                  </div>
+            </form>
+        </div>
+      </div>
+
+
+
+
+<!-- <div class="container-fluid">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">SignUp For Free</h5>
+          <div>
+                <form>
+                    Name <br>
+                    <input type="text" id="name" placeholder="Jimmy Walter"> <br>
+                    Email Id <br>
+                    <input type="email" id="email" placeholder="abc@example.com" style="display: block;">
+                </form>
+                <div style="text-align: center;">
+                    <button>Notify Me!</button>
+                    <div style="text-align: center;" class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+</div> -->
+
+    <!--        Google OAuth Script-->
+    <script src="https://apis.google.com/js/platform.js" async ></script>
+    <!--        Bootstrap Script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!--    My Script   -->
+    <script>
+        // <!-- If Signedin WIth other email -->
+        const givenName = document.querySelector('#name')
+        const givenEmail = document.querySelector('#email')
+        const form = document.querySelector('form')
+        form.addEventListener('submit', (e) => {
+            const name = givenName.value
+            const email = givenEmail.value
+            fetch("http://localhost:3000/subscribe", {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        
+            body: JSON.stringify({
+                name: name,
+                email: email
+              })
+            }).then( (response) => { 
+                console.log(response);
+            });
+            
+        })
+
+        // Google SignIn
+        async function onSignIn(googleUser) {
+            try {
+                var profile = await googleUser.getBasicProfile();
+                if(!profile) {
+                    throw new Error('No Profile Found!')
+                }
+
+            fetch("http://localhost:3000/subscribe", {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        
+            body: JSON.stringify({
+                name: profile.getName(),
+                email: profile.getEmail()
+              })
+            }).then( (response) => { 
+                signOut()
+            })} catch (e) {
+                console.log(e);
+            }
+        }
+
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+          });
+        }
+
+
+    </script>
+</body>
+<footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: absolute; bottom: 0;">
+        Made with ❤️ by Manan Vij 
+  </footer>
+</html>
+

@@ -122,6 +122,7 @@
                     // }
                     console.log(data)
                     data.map((abc, index) => {
+                        document.querySelector('footer').style.position = 'relative'
                         return output.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`
                     })
                 }).catch((e) => {
@@ -135,7 +136,7 @@
     </script>
 </body>
 <div style="display: flex; width: 100%; align-items: flex-end; justify-content: flex-end;">
-    <footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: relative; bottom: 0;">
+    <footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: absolute; bottom: 0;">
         Made with ❤️ by Manan Vij 
     </footer>
 </div>

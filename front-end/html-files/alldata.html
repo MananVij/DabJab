@@ -149,6 +149,7 @@
                     }
                     // campHeading.innerHTML = 'Camp Data'
                     data.map((abc, index) => {
+                        document.querySelector('footer').style.position = 'relative'
                         return outputCamp.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Slots:</b> ${abc.slots} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`
                     })
                 }).catch((e) => {
@@ -162,7 +163,7 @@
     </script>
 </body>
 <div style="display: flex; width: 100%; align-items: flex-end; justify-content: flex-end;">
-    <footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: relative; bottom: 0;">
+    <footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: absolute; bottom: 0;">
         Made with ❤️ by Manan Vij 
     </footer>
 </div>

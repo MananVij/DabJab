@@ -95,7 +95,7 @@
           </div>
               <div class="row container-fluid" style="margin: 0;">
                   <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                      <input type="text" class="form-control" placeholder="Name of Location" id="name">
+                      <input type="text" class="form-control" placeholder="Name of Location" id="location-name">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-12">
                     <input type="text" class="form-control" placeholder="Address of Location" id="address">
@@ -109,17 +109,27 @@
                     <input type="date" class="form-control" id="date">
                   </div>
                   <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                    <input type="text" class="form-control" placeholder="Time" id="slots">
+                    <div class="row">
+                      <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                        <input type="text" class="form-control" placeholder="Start Time" id="start-time">
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <input type="text" class="form-control" placeholder="End Time" id="end-time">
+                      </div>
+                    </div>
                 </div>
                   <div class="form-group col-lg-3 col-md-6 col-sm-12">
                       <input type="text" class="form-control" placeholder="Fees in Rs." id="fees">
                   </div>
               </div>
               <div class="row container-fluid" style="margin: 0;">
-                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Name of Vaccine" id="vaccine-name">
+                  </div>
+                  <div class="form-group col-lg-4 col-md-4 col-sm-12">
                       <input type="text" class="form-control" placeholder="Available for Dose 1" id="dose1">
                   </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-12">
                     <input type="text" class="form-control" placeholder="Available for Dose 2" id="dose2">
                   </div>
               </div>
@@ -128,6 +138,9 @@
               </div>
               <div style="text-align: center;" class="g-signin2" data-onsuccess="onSignIn"></div>
             </form>
+            <div style="font-family: 'Poppins', sans-serif; padding: 3rem 10% 0; text-align: center;">
+              <h3></h3>
+            </div>
   
   
   </div>
@@ -136,28 +149,35 @@
     <script>
         const givenPersonName = document.querySelector('#person-name')
         const givenPhone = document.querySelector('#phone')
-        const givenVaccineName = document.querySelector('#name')
+        const givenPlaceName = document.querySelector('#location-name')
+        const givenVaccineName = document.querySelector('#vaccine-name')
         const givenAddress = document.querySelector('#address')
         const givenPincode = document.querySelector('#pincode')
         const givenDate = document.querySelector('#date')
+        const givenStartTime = document.querySelector('#start-time')
+        const givenEndTime = document.querySelector('#end-time')
         const givenFees = document.querySelector('#fees')
         const givenDose1 = document.querySelector('#dose1')
         const givenDose2 = document.querySelector('#dose2')
         const form = document.querySelector('form')
 
         form.addEventListener('submit', (e) => {
+            e.preventDefault()
             const nameOfPerson = givenPersonName.value
             const phone = givenPhone.value
+            const placeName = givenPlaceName.value
             const vaccine = givenVaccineName.value
+            const fee = givenFees.value
             const address = givenAddress.value
             const pincode = givenPincode.value
             const available_capacity_dose1 = givenDose1.value
             const available_capacity_dose2 = givenDose2.value
+            const startTime = givenStartTime.value
+            const endTime = givenEndTime.value
 
 
-            const dateSearched = givenDate.value
+            const dateInput = givenDate.value
 
-            const dateInput = searchDate.value;
             const year = dateInput.slice(0,4);
             const month = dateInput.slice(5,7);
             const date = dateInput.slice(8,10);
@@ -173,19 +193,27 @@
             },
         
             body: JSON.stringify({
-                name: name,
+                nameOfPerson: nameOfPerson,
+                phoneNo: phone,
+                placeName: placeName,
+                vaccine: vaccine,
+                fee: fee,
                 address: address,
                 pincode: pincode,
+                available_capacity_dose1: available_capacity_dose1,
+                available_capacity_dose2: available_capacity_dose2,
+                startTime: startTime,
+                endTime: endTime,
                 date: dateFinal,
                 
               })
             }).then( (response) => { 
-                console.log(response);
+                document.querySelector('h3').innerHTML = 'Thanks For Registering!'
             });
         })
     </script>
 </body>
-<footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: absolute; bottom: 0;">
+<footer style="background-color: #07A6C2; width: 100%; text-align: center; color: white; padding: 0.5%; position: relative; bottom: 0;">
         Made with ❤️ by Manan Vij 
   </footer>
 </html>

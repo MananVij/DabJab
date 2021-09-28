@@ -115,7 +115,7 @@
             //final date in dd-mm-yyyy
             const dateSearched = date + '-' + month + '-' + year
 
-            fetch('http://localhost:3000/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
+            fetch('https://dabjab.herokuapp.com/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
                 res.json().then((data) => {
                     
                     data.map((abc, index) => {

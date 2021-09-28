@@ -115,7 +115,7 @@
             //final date in dd-mm-yyyy
             const dateSearched = date + '-' + month + '-' + year
 
-            fetch('http://localhost:3000/getcampdata?date='+dateSearched+'&pincode='+pincode).then((res) => {
+            fetch('https://dabjab.herokuapp.com/getcampdata?date='+dateSearched+'&pincode='+pincode).then((res) => {
                 res.json().then((data) => {
                     // if(!data) {
                     //     return output.innerHTML = 'No Sessions Found'

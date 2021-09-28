@@ -108,6 +108,9 @@ body {
             </form>
         </div>
       </div>
+      <div>
+        <h3 style="text-align: center; font-family: 'Poppins', sans-serif;"></h3>
+      </div>
 
 
 
@@ -147,9 +150,10 @@ body {
         const givenEmail = document.querySelector('#email')
         const form = document.querySelector('form')
         form.addEventListener('submit', (e) => {
+          e.preventDefault()
             const name = givenName.value
             const email = givenEmail.value
-            fetch("http://localhost:3000/subscribe", {
+            fetch("https://dabjab.herokuapp.com/subscribe", {
             method: "post",
             headers: {
                 'Accept': 'application/json',
@@ -161,7 +165,7 @@ body {
                 email: email
               })
             }).then( (response) => { 
-                console.log(response);
+                document.querySelector('h3').innerHTML = 'Please Check Your Email!'
             });
             
         })
@@ -174,7 +178,7 @@ body {
                     throw new Error('No Profile Found!')
                 }
 
-            fetch("http://localhost:3000/subscribe", {
+            fetch("https://dabjab.herokuapp.com/subscribe", {
             method: "post",
             headers: {
                 'Accept': 'application/json',
@@ -186,6 +190,7 @@ body {
                 email: profile.getEmail()
               })
             }).then( (response) => { 
+              document.querySelector('h3').innerHTML = 'Please Check Your Email!'
                 signOut()
             })} catch (e) {
                 console.log(e);

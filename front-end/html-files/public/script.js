@@ -58,7 +58,7 @@ phoneForm.addEventListener('submit', async e => {
       alert(`******${phoneNumber.slice(6, 11)} Verified! Please Fill the form!`)
       campDiv.style.display = 'block'
       campForm.style.display = 'block'
-      phoneNumber = document.querySelector('#phone-number-input').value
+      document.querySelector('#phone').value = phoneNumber 
     }
     else {
       alert(`Wrong OTP entered!`)
@@ -117,6 +117,7 @@ phoneForm.addEventListener('submit', async e => {
         
       })
     }).then( (response) => { 
+        console.log(response)
         document.querySelector('h3').innerHTML = 'Thanks For Registering!'
     });
 

@@ -137,6 +137,7 @@ body {
             const email = givenEmail.value
             const pincode = givenPincode.value
             fetch("https://dabjab.herokuapp.com/subscribe", {
+            mode: "no-cors",
             method: "post",
             headers: {
                 'Accept': 'application/json',
@@ -163,6 +164,7 @@ body {
                 }
 
             fetch("https://dabjab.herokuapp.com/subscribe", {
+            mode: "no-cors",
             method: "post",
             headers: {
                 'Accept': 'application/json',

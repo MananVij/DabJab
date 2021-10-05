@@ -81,7 +81,7 @@
                             <input type="text" class="form-control" placeholder="Pincode" id="pincode">
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12">
-                            <input type="date" class="form-control" placeholder="Date" id="date">
+                            <input type="date" min="dateToday" class="form-control" placeholder="Date" id="date">
                         </div>
                         <div class="col-lg-12" style="display: flex; flex-direction: row; justify-content: center; padding-top: 2vh;">
                             <button class="btn btn-md" style="background-color: #07A6C2; color: white; font-family: 'Poppins', sans-serif;">Check</button>
@@ -99,6 +99,15 @@
     </div>
 
     <script type="text/javascript">
+        // function dateToday () {
+        //     const d = new Date()
+        //     const dateForInput = d.getDate()
+        //     const monthForInput = d.getMonth() +1
+        //     const yearForInput = d.getFullYear()
+
+        //     return `${yearForInput}-${monthForInput}-${dateForInput}`
+        // }
+
         const outputCowin = document.querySelector('#cowin-data') 
         const outputCamp = document.querySelector('#camp-data')
         const cowinHeading = document.querySelector('#cowin-heading') 

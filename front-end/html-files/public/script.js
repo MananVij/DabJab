@@ -13,18 +13,19 @@ phoneForm.addEventListener('submit', async e => {
   
     phoneNumber = document.getElementById('phone-number-input').value;
   
-    const response = await fetch('https://dabjab.herokuapp.com/sendotp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({phoneNumber : phoneNumber })
-    }).catch(e => console.log(e));
-  
-    if (response.ok) {
-      phoneDiv.style.display = 'none'
-      phoneForm.style.display = 'none';
-      verifyForm.style.display = 'block';
-      verifyDiv.style.display = 'block'
-    }
+    
+      const response = await fetch('https://dabjab.herokuapp.com/sendotp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({phoneNumber : phoneNumber })
+      }).catch(e => console.log(e));
+      
+      if (response.ok) {
+        phoneDiv.style.display = 'none'
+        phoneForm.style.display = 'none';
+        verifyForm.style.display = 'block';
+        verifyDiv.style.display = 'block'
+      }
   });
 
   

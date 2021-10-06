@@ -123,7 +123,6 @@
 
             fetch('https://dabjab.herokuapp.com/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
                 res.json().then((data) => {
-                    
                     data.map((abc, index) => {
                         document.querySelector('footer').style.position = 'relative'
                         return output.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`

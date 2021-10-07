@@ -247,6 +247,9 @@
         document.querySelector("#content").style.display = "block";
       };
 
+      var today = new Date().toISOString().split('T')[0];
+      document.querySelector("#date").setAttribute('min', today);
+
       const output = document.querySelector("p");
       const form = document.querySelector("form");
       const searchPincode = document.querySelector("#pincode");

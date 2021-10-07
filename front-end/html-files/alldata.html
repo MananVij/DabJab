@@ -138,6 +138,10 @@
             document.querySelector('#loader').style.display = 'none'
             document.querySelector('#content').style.display = 'block'
         }
+
+        var today = new Date().toISOString().split('T')[0];
+        document.querySelector("#date").setAttribute('min', today);
+        
         // function dateToday () {
         //     const d = new Date()
         //     const dateForInput = d.getDate()

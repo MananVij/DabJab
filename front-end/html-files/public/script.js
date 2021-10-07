@@ -3,6 +3,10 @@ window.onload = function () {
   document.querySelector("#content").style.display = "block";
 };
 
+
+var today = new Date().toISOString().split('T')[0];
+document.querySelector("#date").setAttribute('min', today);
+
 const phoneForm = document.getElementById("phone-form");
 const verifyForm = document.getElementById("verify-form");
 const campForm = document.getElementById("camp-form");
@@ -124,9 +128,9 @@ campForm.addEventListener("submit", async (e) => {
       date: dateFinal,
     }),
   }).then((response) => {
-    loader.style.display = "none";
-    content.style.display = "block"
     console.log(response);
     document.querySelector("h3").innerHTML = "Thanks For Registering!";
+    loader.style.display = "none";
+    content.style.display = "block"
   });
 });

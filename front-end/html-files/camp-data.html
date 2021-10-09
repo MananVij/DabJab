@@ -264,7 +264,6 @@
                   return (output.innerHTML = "No Sessions Found");
                 }
                 data.map((abc, index) => {
-                  document.querySelector("footer").style.position = "relative";
                   return (output.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`);
                 });
               })

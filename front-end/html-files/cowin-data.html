@@ -139,7 +139,6 @@
         const searchDate = document.querySelector('#date')
         const content = document.querySelector('#content')
         const loader = document.querySelector('#loader')
-        console.log(searchDate);
 
 
         form.addEventListener('submit', (e) => {
@@ -162,8 +161,7 @@
                 content.style.display = 'block'
                 res.json().then((data) => {
                     data.map((abc, index) => {
-                        document.querySelector('footer').style.position = 'relative'
-                        return output.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`
+                        return output.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br><b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`
                     })
                 }).catch((e) => {
                     alert('No Session Found')

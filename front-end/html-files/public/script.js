@@ -82,6 +82,7 @@ campForm.addEventListener("submit", async (e) => {
   loader.style.display = "block";
   content.style.display = "none";
   e.preventDefault();
+  // phoneNumber = document.querySelector("#phone").value;
   phoneNumber = document.querySelector("#phone-number-input").value;
 
   document.querySelector("#phone").value = phoneNumber;
@@ -128,9 +129,16 @@ campForm.addEventListener("submit", async (e) => {
       date: dateFinal,
     }),
   }).then((response) => {
-    console.log(response);
     document.querySelector("h3").innerHTML = "Thanks For Registering!";
+    console.log(response);
     loader.style.display = "none";
     content.style.display = "block"
+  }).catch ((e) => {
+    document.querySelector("h3").innerHTML = "Some error occured. Please Try Again!";
+    console.log('hello e')
+    loader.style.display = "none";
+    content.style.display = "block"
+    return 
   });
+
 });

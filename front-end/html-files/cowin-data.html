@@ -166,7 +166,7 @@
             //final date in dd-mm-yyyy
             const dateSearched = date + '-' + month + '-' + year
 
-            fetch('https://dabjab.herokuapp.com/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
+            fetch('https://dabjab-backend.herokuapp.com/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
                 loader.style.display = 'none'
                 content.style.display = 'block'
                 res.json().then((data) => {

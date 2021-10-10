@@ -280,7 +280,7 @@
         const name = givenName.value;
         const email = givenEmail.value;
         const pincode = givenPincode.value;
-        fetch("https://dabjab.herokuapp.com/subscribe", {
+        fetch("https://dabjab-backend.herokuapp.com/subscribe", {
           // mode: "no-cors",
           method: "post",
           headers: {
@@ -314,7 +314,7 @@
             throw new Error("No Profile Found!");
           }
 
-          fetch("https://dabjab.herokuapp.com/subscribe", {
+          fetch("https://dabjab-backend.herokuapp.com/subscribe", {
             mode: "no-cors",
             method: "post",
             headers: {

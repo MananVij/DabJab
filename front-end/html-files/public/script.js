@@ -24,7 +24,7 @@ phoneForm.addEventListener("submit", async (e) => {
 
   phoneNumber = document.getElementById("phone-number-input").value;
 
-  const response = await fetch("https://dabjab.herokuapp.com/sendotp", {
+  const response = await fetch("https://dabjab-backend.herokuapp.com/sendotp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phoneNumber: phoneNumber }),
@@ -53,7 +53,7 @@ verifyForm.addEventListener("submit", async (e) => {
     code: otp,
   };
 
-  const response = await fetch("https://dabjab.herokuapp.com/verifyotp", {
+  const response = await fetch("https://dabjab-backend.herokuapp.com/verifyotp", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data),
@@ -107,7 +107,7 @@ campForm.addEventListener("submit", async (e) => {
   //final date in dd-mm-yyyy
   const dateFinal = date + "-" + month + "-" + year;
 
-  fetch("https://dabjab.herokuapp.com/postdata", {
+  fetch("https://dabjab-backend.herokuapp.com/postdata", {
     method: "post",
     headers: {
       Accept: "application/json",

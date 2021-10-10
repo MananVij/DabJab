@@ -43,6 +43,10 @@
 
     <title>DabJab</title>
     <style>
+      .hello:hover {
+        transform: scale(1.01);
+        transition-duration: 0.2s;
+      }
       #loader {
         position: absolute;
         margin: auto;
@@ -65,10 +69,11 @@
         background-color: #f1fafd;
         border-radius: 12px;
         border: 1px solid rgba(209, 213, 219, 0.3);
+        box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%)
       }
     </style>
   </head>
-  <body style="width: 100%; background-color: #dcf6ff">
+  <body style="width: 100%; background-color: #f1fafd">
     <div id="loader">
       <img src="./public/plaster-new.gif" alt="" />
     </div>
@@ -158,6 +163,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <input
+                    required
                     type="text"
                     class="form-control"
                     placeholder="Pincode"
@@ -166,6 +172,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <input
+                    required
                     type="date"
                     min="dateToday"
                     class="form-control"
@@ -199,9 +206,19 @@
         </div>
         <div style="display: flex; flex-direction: column; align-items: center">
           <h5 id="cowin-heading"></h5>
+
+          <div class="make-card-1" style="padding: 4vh">
+
+          </div>
+
           <p id="cowin-data"></p>
           <br /><br />
           <h5 id="camp-heading"></h5>
+
+          <div class="make-card-2" style="padding: 4vh">
+
+          </div>
+
           <p id="camp-data"></p>
         </div>
       </div>
@@ -238,6 +255,10 @@
       const outputCamp = document.querySelector("#camp-data");
       const cowinHeading = document.querySelector("#cowin-heading");
       const campHeading = document.querySelector("#camp-heading");
+
+      const cardCowin = document.querySelector('.make-card-1')
+      const cardCamp = document.querySelector('.make-card-2')
+
 
       const form = document.querySelector("form");
       const searchPincode = document.querySelector("#pincode");
@@ -277,7 +298,16 @@
                 // }
                 cowinHeading.innerHTML = "Hospital Data";
                 data.map((abc, index) => {
-                  return (outputCowin.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`);
+                  // return (outputCowin.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`);
+
+                  return cardCowin.innerHTML +=                     
+                    `    <div class="card hello border-primary " style= "margin: 2vh 0">
+                        <div class="card-body" style="max-width:70vh; min-width:50vh">
+                            <b>Hospital Name:</b> ${abc.placeName} <br/><b> Hospital Address:</b> ${abc.hospitalAddress} <br/> <b>Vaccine Name:</b>  ${abc.vaccine} <br/> <b>Fees:</b> Rs. ${abc.fee} <br/><b>Date:</b> ${abc.date} <br/><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br/> <b>Dose One:</b> ${abc.availDoseOne} <br/> <b>Dose Two:</b> ${abc.availDoseTwo} <br/>
+                          </div>
+                        </div>
+                    `
+
                 });
               })
               .catch((e) => {
@@ -297,8 +327,8 @@
             pincode
         )
           .then((res) => {
-            loader.style.display = "block";
-            content.style.display = "none";
+            // loader.style.display = "block";
+            // content.style.display = "none";
             res
               .json()
               .then((data) => {
@@ -309,7 +339,16 @@
                 }
                 campHeading.innerHTML = "Camp Data";
                 data.map((abc, index) => {
-                  return (outputCamp.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`);
+                  // return (outputCamp.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`);
+
+                  return cardCamp.innerHTML +=                     
+                    `    <div class="card hello border-primary " style= "margin: 2vh 0;">
+                        <div class="card-body" style="max-width:70vh; min-width:50vh">
+                            <b>Hospital Name:</b> ${abc.placeName} <br/><b> Hospital Address:</b> ${abc.address} <br/> <b>Vaccine Name:</b>  ${abc.vaccine} <br/> <b>Fees:</b> Rs. ${abc.fee} <br/><b>Date:</b> ${abc.date} <br/><b>Timing:</b> ${abc.startTime} - ${abc.endTime} <br/> <b>Dose One:</b> ${abc.availDoseOne} <br/> <b>Dose Two:</b> ${abc.availDoseTwo} <br/>
+                          </div>
+                        </div>
+                    `
+
                 });
               })
               .catch((e) => {

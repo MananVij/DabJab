@@ -43,10 +43,6 @@
 
     <title>DabJab</title>
     <style>
-      .hello:hover {
-        transform: scale(1.01);
-        transition-duration: 0.2s;
-      }
       #loader {
         position: absolute;
         margin: auto;
@@ -69,11 +65,10 @@
         background-color: #f1fafd;
         border-radius: 12px;
         border: 1px solid rgba(209, 213, 219, 0.3);
-        box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%)
       }
     </style>
   </head>
-  <body style="width: 100%; background-color: #f1fafd">
+  <body style="width: 100%; background-color: #dcf6ff">
     <div id="loader">
       <img src="./public/plaster-new.gif" alt="" />
     </div>
@@ -162,7 +157,6 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <input
-                    required
                     type="text"
                     class="form-control"
                     placeholder="Pincode"
@@ -171,7 +165,6 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <input
-                    required
                     type="date"
                     class="form-control"
                     placeholder="Date"
@@ -202,13 +195,9 @@
             </form>
           </div>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center">
           <p></p>
-          <!-- make card -->
-          <div class="make-card" style="padding: 4vh">
-
-          </div>
-      </div>
+        </div>
       </div>
     </div>
 
@@ -242,8 +231,7 @@
       const form = document.querySelector("form");
       const searchPincode = document.querySelector("#pincode");
       const searchDate = document.querySelector("#date");
-
-      const card = document.querySelector('.make-card')
+      console.log(searchDate);
 
       form.addEventListener("submit", (e) => {
         output.innerHTML = "";
@@ -276,13 +264,7 @@
                   return (output.innerHTML = "No Sessions Found");
                 }
                 data.map((abc, index) => {
-                  return card.innerHTML +=                     
-                    `    <div class="card hello border-primary " style= "margin: 2vh 0">
-                        <div class="card-body" >
-                            <b>Hospital Name:</b> ${abc.placeName} <br/><b> Hospital Address:</b> ${abc.hospitalAddress} <br/> <b>Vaccine Name:</b>  ${abc.vaccine} <br/> <b>Fees:</b> Rs. ${abc.fee} <br/><b>Date:</b> ${abc.date} <br/><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br/> <b>Dose One:</b> ${abc.availDoseOne} <br/> <b>Dose Two:</b> ${abc.availDoseTwo} <br/>
-                          </div>
-                        </div>
-                    `
+                  return (output.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`);
                 });
               })
               .catch((e) => {

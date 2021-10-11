@@ -311,12 +311,17 @@
       async function onSignIn(googleUser) {
         try {
           var profile = await googleUser.getBasicProfile();
+          const givenPincode = document.querySelector("#pincode");
+          const pincode = givenPincode.value;
+
+          if(pincode == '') {
+            return document.querySelector("h3").innerHTML = "Please Enter Pincode!"; 
+          }
           if (!profile) {
             throw new Error("No Profile Found!");
           }
 
           fetch("https://dabjab-backend.herokuapp.com/subscribe", {
-            mode: "no-cors",
             method: "post",
             headers: {
               Accept: "application/json",
@@ -326,6 +331,7 @@
             body: JSON.stringify({
               name: profile.getName(),
               email: profile.getEmail(),
+              pincode: pincode
             }),
           }).then((response) => {
             document.querySelector("h3").innerHTML = "Please Check Your Email!";

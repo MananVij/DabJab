@@ -121,6 +121,7 @@
               <p></p>
               <!-- make card -->
               <div class="make-card" style="padding: 4vh">
+                
               </div>
           </div>
       </div>
@@ -150,11 +151,13 @@
 
         const card = document.querySelector('.make-card')
 
+        
 
         form.addEventListener('submit', (e) => {
             output.innerHTML = ''
             loader.style.display = 'block'
-            content.style.display = 'none'
+            loader.style.top = 'inherit'
+            loader.style.zIndex = '1'
             e.preventDefault()
             const pincode = searchPincode.value
 
@@ -168,11 +171,8 @@
 
             fetch('https://dabjab-backend.herokuapp.com/getcowindata?date='+dateSearched+'&pincode='+pincode).then((res) => {
                 loader.style.display = 'none'
-                content.style.display = 'block'
                 res.json().then((data) => {
-                    console.log(data)
                     data.map((abc, index) => {
-                        console.log(abc)
                         return card.innerHTML +=                     
                         `    <div class="card hello border-primary " style= "margin: 2vh 0">
                             <div class="card-body">
@@ -180,7 +180,6 @@
                               </div>
                             </div>
                         `
-                        console.log(card.innerHTML)
                     })
                 }).catch((e) => {
                     card.innerHTML = ''  
@@ -189,7 +188,6 @@
             }).catch((e) => {
                 console.log(e.message);
             })
-
         })
 
     </script>

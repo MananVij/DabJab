@@ -248,8 +248,9 @@
 
       form.addEventListener("submit", (e) => {
         output.innerHTML = "";
-        loader.style.display = "block";
-        content.style.display = "none";
+        loader.style.display = 'block'
+        loader.style.top = 'inherit'
+        loader.style.zIndex = '1'
         e.preventDefault();
         const pincode = searchPincode.value;
 
@@ -269,7 +270,6 @@
         )
           .then((res) => {
             loader.style.display = "none";
-            content.style.display = "block";
             res
               .json()
               .then((data) => {

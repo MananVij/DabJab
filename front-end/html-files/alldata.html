@@ -263,13 +263,13 @@
       const form = document.querySelector("form");
       const searchPincode = document.querySelector("#pincode");
       const searchDate = document.querySelector("#date");
-      console.log(searchDate);
 
       form.addEventListener("submit", (e) => {
         outputCowin.innerHTML = "";
         outputCamp.innerHTML = ''
-        loader.style.display = "block";
-        content.style.display = "none";
+        loader.style.display = 'block'
+        loader.style.top = 'inherit'
+        loader.style.zIndex = '1'
         e.preventDefault();
         const pincode = searchPincode.value;
 
@@ -288,8 +288,7 @@
             pincode
         )
           .then((res) => {
-            loader.style.display = "none";
-            content.style.display = "block";
+            // loader.style.display = "none";
             res
               .json()
               .then((data) => {
@@ -297,6 +296,7 @@
                 //     return output.innerHTML = 'No Sessions Found'
                 // }
                 cowinHeading.innerHTML = "Hospital Data";
+                loader.style.display = "none";
                 data.map((abc, index) => {
                   // return (outputCowin.innerHTML += `<b>Hospital Name:</b> ${abc.placeName} <br><b> Hospital Address:</b> ${abc.hospitalAddress} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Timing:</b> ${abc.timeStart} - ${abc.timeEnd} <br> <b>Dose One:</b> ${abc.availDoseOne} <br> <b>Dose Two:</b> ${abc.availDoseTwo} <br><br>`);
 
@@ -327,8 +327,6 @@
             pincode
         )
           .then((res) => {
-            // loader.style.display = "block";
-            // content.style.display = "none";
             res
               .json()
               .then((data) => {
@@ -338,8 +336,8 @@
                   return;
                 }
                 campHeading.innerHTML = "Camp Data";
+
                 data.map((abc, index) => {
-                  // return (outputCamp.innerHTML += `<b>Place Name:</b> ${abc.placeName} <br><b> Place Address:</b> ${abc.address} <br> <b>Vaccine Name:</b>  ${abc.vaccine} <br> <b>Fees:</b> Rs. ${abc.fee} <br> <b>Date:</b> ${abc.date} <br><b>Time:</b> ${abc.startTime} - ${abc.endTime} <br> <b>Dose One:</b> ${abc.available_capacity_dose1} <br> <b>Dose Two:</b> ${abc.available_capacity_dose2} <br><br>`);
 
                   return cardCamp.innerHTML +=                     
                     `    <div class="card hello border-primary " style= "margin: 2vh 0;">

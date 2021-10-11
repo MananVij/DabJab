@@ -76,11 +76,10 @@
       .card {
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
-        /* background-color: rgba(255, 255, 255, 0.75); */
-        background-color: #f1fafd;
-
+        background-color: #F1FAFD;
         border-radius: 12px;
         border: 1px solid rgba(209, 213, 219, 0.3);
+        box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%)
       }
       #verify-form,
       #verify-div,
@@ -89,7 +88,7 @@
       }
     </style>
   </head>
-  <body style="width: 100%; background-color: #dcf6ff">
+  <body style="width: 100%; background-color: #f1fafd">
     <div id="loader">
       <img src="./public/plaster-new.gif" alt="" />
     </div>
@@ -105,7 +104,7 @@
           padding: 3rem 10% 0;
         "
       >
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./index.html">
           <img
             src="./public/4.png"
             width="30"
@@ -196,6 +195,7 @@
               class="form-control"
               type="tel"
               id="phone-number-input"
+              pattern="[0-9]{10}"
               placeholder="e.g. 9876543210"
             />
             <div
@@ -246,6 +246,7 @@
               class="form-control"
               type="number"
               id="otp-input"
+              pattern="[0-9]{6}"
               placeholder="e.g. 123456"
             />
             <div
@@ -303,6 +304,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Your Name"
+                  pattern="[a-zA-Z][a-zA-Z ]+"
                   id="person-name"
                 />
               </div>
@@ -323,6 +325,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Name of Location"
+                  
                   id="location-name"
                 />
               </div>
@@ -343,6 +346,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Pincode"
+                  pattern="[0-9]{6}"
                   id="pincode"
                 />
               </div>
@@ -357,6 +361,7 @@
                       type="text"
                       class="form-control"
                       placeholder="Start Time"
+                      pattern="[0-9]{2}+[:][0-9]{2}"
                       id="start-time"
                     />
                   </div>
@@ -366,6 +371,7 @@
                       type="text"
                       class="form-control"
                       placeholder="End Time"
+                      pattern="[0-9]{2}+[:][0-9]{2}"
                       id="end-time"
                     />
                   </div>
@@ -377,6 +383,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Fees in Rs."
+                  pattern="[0-9]*"
                   id="fees"
                 />
               </div>
@@ -388,6 +395,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Name of Vaccine"
+                  pattern="[a-zA-Z]"
                   id="vaccine-name"
                 />
               </div>
@@ -397,6 +405,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Available for Dose 1"
+                  pattern="[0-9]*"
                   id="dose1"
                 />
               </div>
@@ -406,6 +415,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Available for Dose 2"
+                  pattern="[0-9]*"
                   id="dose2"
                 />
               </div>
